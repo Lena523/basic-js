@@ -149,7 +149,7 @@ class VigenereCipheringMachine {
       if(j === this.keyArr.length){
         j = 0;
       }
-      this.cipherArr.push(this.keyArr[j]);
+       this.cipherArr.push(this.keyArr[j]);
     }
 
      for(let i = 0; i < this.arr.length; i += 1){

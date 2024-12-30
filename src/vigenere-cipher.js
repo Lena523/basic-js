@@ -140,7 +140,7 @@ class VigenereCipheringMachine {
       for(let j = 0; j < this.abc.length; j += 1){
         if(key[i].toUpperCase() === this.abc[j]){
           this.keyArr.push(j);
-          break;
+           break;
         }
       }
     }  

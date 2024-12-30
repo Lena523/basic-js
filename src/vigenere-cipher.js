@@ -83,7 +83,7 @@ class VigenereCipheringMachine {
       for(let j = 0; j < this.abc.length; j += 1){
         if(this.meaningsArr[i] === j){
           this.codedPhrase.push(this.abc[j]);
-          break;
+           break;
         }
       }
     }

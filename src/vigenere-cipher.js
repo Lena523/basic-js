@@ -43,7 +43,9 @@ class VigenereCipheringMachine {
     }
 
     this.formattedArr = string.match(/[a-zA-Z]/g);
-    this.formattedString = this.formattedArr.join('').toUpperCase();
+    if(this.formattedArr.length !== 0){
+      this.formattedString = this.formattedArr.join('').toUpperCase();
+    }
 
     for(let i = 0; i < key.length; i += 1){
       for(let j = 0; j < this.abc.length; j += 1){
@@ -121,7 +123,9 @@ class VigenereCipheringMachine {
       throw new Error('Incorrect arguments!');
     }
     this.formattedArr = string.match(/[a-zA-Z]/g);
-    this.formattedString = this.formattedArr.join('');
+    if(this.formattedArr.length !== 0){
+      this.formattedString = this.formattedArr.join('');
+    }
 
     for(let i = 0; i < this.formattedString.length; i += 1){
        for(let j =0; j < this.abc.length; j += 1){

@@ -5,25 +5,65 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 const chainMaker = {
+  chain: [],
   getLength() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.chain.length;
   },
-  addLink(/* value */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  addLink(value) {
+  if(this.chain.length === 0){
+    if(String(value) === ''){
+       this.chain.push(`('(  )')`);
+    }
+    else{
+       this.chain.push(`( ${String(value)} )`);
+    }
+  }
+  else{
+    if(String(value) === ''){
+      this.chain.push('~~' + `('(  )')`);
+    }
+    else{
+      this.chain.push('~~' + `( ${String(value)} )`);     
+    }   
+  }
+  return this;
   },
-  removeLink(/* position */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  removeLink( position) {
+    if(!Number.isInteger(position) || position <= 0 || position > this.chain.length){
+      this.chain = [];
+      throw new Error("You can't remove incorrect link!");
+    }
+      const point = position - 1;
+      if(point === 0){
+        let tempStr = this.chain[1].slice(2);
+        this.chain[1] = tempStr;
+      }
+      function arrFilter(element, index){
+        if(index !== point){
+          return element;
+        }
+      }
+      let tempArr = this.chain.filter(arrFilter);
+      this.chain = tempArr;
+      return this;
   },
   reverseChain() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    if(this.chain.length > 1){
+          let tempStr = this.chain[this.chain.length - 1].slice(2);
+    this.chain[this.chain.length - 1] = tempStr;
+    tempStr = '~~' + this.chain[0];
+    this.chain[0] = tempStr;
+    const reversedArr = this.chain.reverse();
+    this.chain = reversedArr; 
+    }
+    return this;
   },
+
   finishChain() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    const output = this.chain.join('');
+    this.chain = [];
+    console.log(output);
+    return output;
   }
 };
 

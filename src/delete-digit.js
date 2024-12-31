@@ -12,7 +12,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function deleteDigit(n) {
- const number = String(n);
+   const number = String(n);
  let numbersArr = [];
  for(let i = 0; i < number.length; i += 1){
   numbersArr.push(Number(number.replace(number[i], '')));

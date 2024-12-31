@@ -41,8 +41,10 @@ class VigenereCipheringMachine {
     if(Boolean(string) === false || Boolean(key) === false){
       throw new Error('Incorrect arguments!');
     }
-
-    this.formattedArr = string.match(/[a-zA-Z]/g);
+    if(string.length !== 0){
+      this.formattedArr = string.match(/[a-zA-Z]/g);
+    }
+    
     if(this.formattedArr.length !== 0){
       this.formattedString = this.formattedArr.join('').toUpperCase();
     }
@@ -122,7 +124,10 @@ class VigenereCipheringMachine {
     if(Boolean(string) === false || Boolean(key) === false){
       throw new Error('Incorrect arguments!');
     }
-    this.formattedArr = string.match(/[a-zA-Z]/g);
+    if(string.length !== 0){
+      this.formattedArr = string.match(/[a-zA-Z]/g);
+    }
+
     if(this.formattedArr.length !== 0){
       this.formattedString = this.formattedArr.join('');
     }
